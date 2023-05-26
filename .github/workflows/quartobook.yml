@@ -42,7 +42,7 @@ jobs:
         uses: quarto-dev/quarto-actions/install-quarto@v1    
 
 # from: https://github.com/hadley/r4ds/blob/main/.github/workflows/build_book.yaml
-      - name: Render book to all format
+      - name: Render book 
         # Add any command line argument needed
         run: |
           quarto render
@@ -68,7 +68,7 @@ jobs:
          path: _book/ # optional
 
      - name: Deploy to GitHub pages 🚀
-       uses: JamesIves/github-pages-deploy-action@v4.3.0
+       uses: JamesIves/github-pages-deploy-action@v4
        with:
          branch: gh-pages
          folder: _book
