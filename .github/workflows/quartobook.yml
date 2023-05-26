@@ -75,8 +75,8 @@ jobs:
          # Destination path
          path: _book/ # optional
 
-      - name: Deploy to GitHub pages 🚀
-        uses: JamesIves/github-pages-deploy-action@v4.3.0
-        with:
-          branch: gh-pages
-          folder: _book
+     - name: Deploy to GitHub pages 🚀
+       uses: JamesIves/github-pages-deploy-action@v4.3.0
+       with:
+         branch: gh-pages
+         folder: _book
