@@ -48,6 +48,14 @@ jobs:
         run: |
           pak::local_install_dev_deps()
         shell: Rscript {0}
+        
+      - name: Install Quarto
+        uses: quarto-dev/quarto-actions/install-quarto@v1
+        with:
+          # To install LaTeX to build PDF book
+          tinytex: true
+          # uncomment below and fill to pin a version
+          # version: 0.9.105        
 
 # from: https://github.com/hadley/r4ds/blob/main/.github/workflows/build_book.yaml
       - name: Render book to all format
