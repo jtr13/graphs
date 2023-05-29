@@ -1,0 +1,87 @@
+# Grammar of graphics
+
+```{r}
+#| echo: false
+# from https://github.com/toddwschneider/flim-springfield/blob/f9b7f123aa8962b56b624fe4032cd4af3f68cc14/analysis/helpers.R
+
+# http://springfieldfiles.com/index.php?jump=colours
+
+blue <- "#375a80"
+light_blue <- "#c9d6ed"
+red <- "#af2e2f"
+
+library(showtext)
+font_add_google("Jura", family = "jura")
+
+
+theme_example = function(base_size = 12, grid_width = 0.2) {
+  bg_rect = element_rect(fill = light_blue, color = light_blue)
+
+  theme_bw(base_size) +
+    theme(text = element_text(family = "jura"),
+          plot.background = bg_rect,
+          legend.background = bg_rect,
+          panel.background = bg_rect,
+          panel.grid.major = element_line(colour = blue, size = grid_width),
+          panel.grid.minor = element_line(colour = blue, size = grid_width),
+          legend.key.width = unit(1.5, "line"),
+          legend.key = element_blank(),
+          axis.title.x = element_text(margin = unit(c(0.5, 0.25, 0.5, 0.25), "line")),
+          axis.title.y = element_text(margin = unit(c(0, 1, 0, 0.1), "line")),
+          axis.ticks = element_blank(),
+          panel.border = element_blank())
+}
+
+```
+
+
+
+```{r}
+#| fig-width: 4
+#| fig-height: 4
+#| layout-ncol: 3
+#| echo: false
+#| fig-showtext: true
+options(tidyverse.quiet = TRUE)
+library(tidyverse)
+library(ggthemes)
+df <- data.frame(state.x77) |> 
+  rownames_to_column("State") |> 
+  mutate(Region = state.region)
+
+ggplot(df, aes(Income, Illiteracy)) +
+  geom_point(color = "#0099FF") + 
+  theme_void(16) + 
+  ggtitle("Layer(s)")
+
+ggplot(df, aes(Income, Illiteracy/100)) +
+  theme_classic(16) + 
+  ggtitle("Scales") +
+  scale_x_continuous() + 
+  scale_y_continuous(name = "Illiteracy", labels = scales::percent)
+
+ggplot(df, aes(Income, Illiteracy/100)) +
+  scale_x_continuous(name = NULL) +
+  scale_y_continuous(name = NULL) +
+  ggtitle("Coordinate System") +
+  theme_bw(16) +
+  theme(axis.text = element_blank())
+
+ggplot(df, aes(Income, Illiteracy/100)) +
+  scale_x_continuous(name = NULL) +
+  scale_y_continuous(name = NULL) +
+  ggtitle("Faceting") +
+  theme_bw(16) +
+  theme(axis.text = element_blank()) +
+  facet_wrap(~Region)
+  
+ggplot(df, aes(Income, Illiteracy/100)) +
+  scale_x_continuous(name = NULL) +
+  scale_y_continuous(name = NULL) +
+  ggtitle("Theme") +
+  theme_example(16)
+
+
+
+```
+

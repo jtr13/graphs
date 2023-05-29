@@ -1,0 +1,37 @@
+# Acknowledgements
+
+## ggplot2 code
+
+
+**Custom fonts**
+https://r-graph-gallery.com/custom-fonts-in-R-and-ggplot2.html
+
+## quarto
+
+### code examples
+
+https://github.com/hadley/r4ds/blob/main/_quarto.yml
+
+https://github.com/vizdata-s23/vizdata-s23/blob/main/style/sta313.scss
+
+
+## GitHub Actions 
+
+## colors
+
+https://www.color-hex.com/color-palette/80255
+
+Aki no Fujisan Color Palette
+https://www.color-hex.com/color-palette/1026103
+
+
+## Removed
+
+
+
+**Simpsons Theme**
+
+https://github.com/toddwschneider/flim-springfield/blob/f9b7f123aa8962b56b624fe4032cd4af3f68cc14/analysis/helpers.R
+
+
+

@@ -1,7 +1,17 @@
-# Summary
+# How to make this book
 
-In summary, this book has no content whatsoever.
+-   New Project, New Directory, Quarto book
 
-```{r}
-1 + 1
-```
+-   edit `_quarto.yml`
+
+-   
+
+To add GitHub Actions:
+
+-   add `DESCRIPTION`
+
+-   add `_book/` to `.gitignore`
+
+-   add GitHub Actions workflow
+
+-   Settings, Actions -- give GA write access
