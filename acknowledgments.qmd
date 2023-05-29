@@ -1,10 +1,19 @@
 # Acknowledgements
 
-## ggplot2 code
-
+## ggplot2 fonts and themes
 
 **Custom fonts**
 https://r-graph-gallery.com/custom-fonts-in-R-and-ggplot2.html
+
+http://www.cookbook-r.com/Graphs/Fonts/
+
+https://www.stat.auckland.ac.nz/~paul/R/fontfamily.pdf
+
+How to create BBC style graphics
+https://bbc.github.io/rcookbook/
+
+Todd Schneider's Simpsons Theme
+https://github.com/toddwschneider/flim-springfield/blob/f9b7f123aa8962b56b624fe4032cd4af3f68cc14/analysis/helpers.R
 
 ## quarto
 
@@ -29,9 +38,7 @@ https://www.color-hex.com/color-palette/1026103
 
 
 
-**Simpsons Theme**
 
-https://github.com/toddwschneider/flim-springfield/blob/f9b7f123aa8962b56b624fe4032cd4af3f68cc14/analysis/helpers.R
 
 
 
