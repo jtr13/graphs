@@ -2,20 +2,45 @@
 
 ```{r}
 #| echo: false
-#| fig-height: 3
-
+#| fig-height: 4
+#| fig-width: 4
+#| fig-align: center
+options(tidyverse.quiet = TRUE)
+library(tidyverse)
 library(patchwork)
 
-bg_color <- "#ffe79b"
+bg_color <- "#ffe79b80"
 text_color <- "#af2e2f"
 line_color <- "white"
 fs <- 13
 
-options(tidyverse.quiet = TRUE)
-library(tidyverse)
+theme_example <- theme(title = element_text(family = "mono", color = text_color),
+        panel.background  = element_rect(fill = bg_color),
+        panel.grid.major.y = element_line(color = line_color),
+        panel.grid.minor.y = element_line(color = line_color),
+        axis.text = element_text(color = "white"))
+
+
 df <- data.frame(state.x77) |> 
   rownames_to_column("State") |> 
   mutate(Region = state.region)
+
+# full graph
+
+ggplot(df, aes(Income, Illiteracy)) + 
+  geom_point(color = "#0099FF") + 
+  facet_wrap(~Region) +
+  theme_classic(fs) +
+  theme_example
+```
+
+
+## Components
+
+
+```{r}
+#| echo: false
+#| fig-height: 3
 
 p1 <- ggplot(df, aes(Income, Illiteracy)) +
   geom_point(color = "#0099FF") + 
@@ -47,11 +72,7 @@ p4 <- ggplot(df, aes(Income, Illiteracy/100)) +
 p5 <- ggplot(df, aes(Income, Illiteracy/100)) +
   ggtitle("Theme") +
   theme_void(fs) + 
-  theme(title = element_text(family = "mono", color = text_color),
-        panel.background  = element_rect(fill = bg_color),
-        panel.grid.major.y = element_line(color = line_color),
-        panel.grid.minor.y = element_line(color = line_color),
-        axis.text = element_text(color = "white"))
+  theme_example
 
 p1 + p2 + p3
 plot_spacer() + p4 + p5 + plot_spacer() + 
