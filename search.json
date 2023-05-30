@@ -7,18 +7,60 @@
     "text": "Preface\nThis is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books.\n\n1 + 1\n\n[1] 2"
   },
   {
+    "objectID": "grammar.html#components",
+    "href": "grammar.html#components",
+    "title": "1  Grammar of graphics",
+    "section": "1.1 Components",
+    "text": "1.1 Components"
+  },
+  {
+    "objectID": "acknowledgments.html#ggplot2-fonts-and-themes",
+    "href": "acknowledgments.html#ggplot2-fonts-and-themes",
+    "title": "2  Acknowledgements",
+    "section": "2.1 ggplot2 fonts and themes",
+    "text": "2.1 ggplot2 fonts and themes\nCustom fonts https://r-graph-gallery.com/custom-fonts-in-R-and-ggplot2.html\nhttp://www.cookbook-r.com/Graphs/Fonts/\nhttps://www.stat.auckland.ac.nz/~paul/R/fontfamily.pdf\nHow to create BBC style graphics https://bbc.github.io/rcookbook/\nTodd Schneider’s Simpsons Theme https://github.com/toddwschneider/flim-springfield/blob/f9b7f123aa8962b56b624fe4032cd4af3f68cc14/analysis/helpers.R\nhttps://towardsdatascience.com/themes-to-spice-up-visualizations-with-ggplot2-3e275038dafa"
+  },
+  {
+    "objectID": "acknowledgments.html#quarto",
+    "href": "acknowledgments.html#quarto",
+    "title": "2  Acknowledgements",
+    "section": "2.2 quarto",
+    "text": "2.2 quarto\n\n2.2.1 code examples\nhttps://github.com/hadley/r4ds/blob/main/_quarto.yml\nhttps://github.com/vizdata-s23/vizdata-s23/blob/main/style/sta313.scss"
+  },
+  {
+    "objectID": "acknowledgments.html#github-actions",
+    "href": "acknowledgments.html#github-actions",
+    "title": "2  Acknowledgements",
+    "section": "2.3 GitHub Actions",
+    "text": "2.3 GitHub Actions"
+  },
+  {
+    "objectID": "acknowledgments.html#colors",
+    "href": "acknowledgments.html#colors",
+    "title": "2  Acknowledgements",
+    "section": "2.4 colors",
+    "text": "2.4 colors\nhttps://www.color-hex.com/color-palette/80255\nAki no Fujisan Color Palette https://www.color-hex.com/color-palette/1026103"
+  },
+  {
+    "objectID": "acknowledgments.html#removed",
+    "href": "acknowledgments.html#removed",
+    "title": "2  Acknowledgements",
+    "section": "2.5 Removed",
+    "text": "2.5 Removed"
+  },
+  {
     "objectID": "intro.html",
     "href": "intro.html",
-    "title": "1  Introduction",
+    "title": "3  Introduction",
     "section": "",
     "text": "This is a book created from markdown and executable code.\nSee Knuth (1984) for additional discussion of literate programming.\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput. J. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97."
   },
   {
     "objectID": "summary.html",
     "href": "summary.html",
-    "title": "2  Summary",
+    "title": "4  How to make this book",
     "section": "",
-    "text": "In summary, this book has no content whatsoever.\n\n1 + 1\n\n[1] 2"
+    "text": "New Project, New Directory, Quarto book\nedit _quarto.yml\n\n\nTo add GitHub Actions:\n\nadd DESCRIPTION\nadd _book/ to .gitignore\nadd GitHub Actions workflow\nSettings, Actions – give GA write access"
   },
   {
     "objectID": "references.html",

@@ -2,18 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://jtr13.github.io/graphs/index.html</loc>
-    <lastmod>2023-05-27T12:36:29.109Z</lastmod>
+    <lastmod>2023-05-30T02:23:54.330Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jtr13.github.io/graphs/grammar.html</loc>
+    <lastmod>2023-05-30T02:23:54.343Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jtr13.github.io/graphs/acknowledgments.html</loc>
+    <lastmod>2023-05-30T02:23:54.351Z</lastmod>
   </url>
   <url>
     <loc>https://jtr13.github.io/graphs/intro.html</loc>
-    <lastmod>2023-05-27T12:36:29.116Z</lastmod>
+    <lastmod>2023-05-30T02:23:54.357Z</lastmod>
   </url>
   <url>
     <loc>https://jtr13.github.io/graphs/summary.html</loc>
-    <lastmod>2023-05-27T12:36:29.122Z</lastmod>
+    <lastmod>2023-05-30T02:23:54.362Z</lastmod>
   </url>
   <url>
     <loc>https://jtr13.github.io/graphs/references.html</loc>
-    <lastmod>2023-05-27T12:36:29.128Z</lastmod>
+    <lastmod>2023-05-30T02:23:54.375Z</lastmod>
   </url>
 </urlset>
