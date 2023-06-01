@@ -4,63 +4,98 @@
     "href": "index.html",
     "title": "graphs",
     "section": "",
-    "text": "Preface\nThis is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books.\n\n1 + 1\n\n[1] 2"
+    "text": "Preface\nThis tutorial is designed for R users with no experience with ggplot2 or those who have tried to learn but got stuck along the way. It is not designed to be a comprehensive guide but rather to build a solid foundation. It differs from other resources in the following ways:"
   },
   {
-    "objectID": "grammar.html#components",
-    "href": "grammar.html#components",
-    "title": "1  Grammar of graphics",
-    "section": "1.1 Components",
-    "text": "1.1 Components"
+    "objectID": "index.html#setup",
+    "href": "index.html#setup",
+    "title": "graphs",
+    "section": "Setup",
+    "text": "Setup\nAs this is not an introduction to R, you probably already have R installed. If you haven’t updated R recently, say within the last year, download and install the appropriate version for your operating system from The Comprehensive R Archive Network. If you use RStudio check for updates by clicking “Help” “Check for Updates” from within the application. Finally, update or install the tidyverse packages by running install.packages(\"tidyverse\"). For all three – R, RStudio, tidyverse – do not ignore the advice to update!"
   },
   {
-    "objectID": "acknowledgments.html#ggplot2-fonts-and-themes",
-    "href": "acknowledgments.html#ggplot2-fonts-and-themes",
-    "title": "2  Acknowledgements",
-    "section": "2.1 ggplot2 fonts and themes",
-    "text": "2.1 ggplot2 fonts and themes\nCustom fonts https://r-graph-gallery.com/custom-fonts-in-R-and-ggplot2.html\nhttp://www.cookbook-r.com/Graphs/Fonts/\nhttps://www.stat.auckland.ac.nz/~paul/R/fontfamily.pdf\nHow to create BBC style graphics https://bbc.github.io/rcookbook/\nTodd Schneider’s Simpsons Theme https://github.com/toddwschneider/flim-springfield/blob/f9b7f123aa8962b56b624fe4032cd4af3f68cc14/analysis/helpers.R\nhttps://towardsdatascience.com/themes-to-spice-up-visualizations-with-ggplot2-3e275038dafa"
-  },
-  {
-    "objectID": "acknowledgments.html#quarto",
-    "href": "acknowledgments.html#quarto",
-    "title": "2  Acknowledgements",
-    "section": "2.2 quarto",
-    "text": "2.2 quarto\n\n2.2.1 code examples\nhttps://github.com/hadley/r4ds/blob/main/_quarto.yml\nhttps://github.com/vizdata-s23/vizdata-s23/blob/main/style/sta313.scss"
-  },
-  {
-    "objectID": "acknowledgments.html#github-actions",
-    "href": "acknowledgments.html#github-actions",
-    "title": "2  Acknowledgements",
-    "section": "2.3 GitHub Actions",
-    "text": "2.3 GitHub Actions"
-  },
-  {
-    "objectID": "acknowledgments.html#colors",
-    "href": "acknowledgments.html#colors",
-    "title": "2  Acknowledgements",
-    "section": "2.4 colors",
-    "text": "2.4 colors\nhttps://www.color-hex.com/color-palette/80255\nAki no Fujisan Color Palette https://www.color-hex.com/color-palette/1026103"
-  },
-  {
-    "objectID": "acknowledgments.html#removed",
-    "href": "acknowledgments.html#removed",
-    "title": "2  Acknowledgements",
-    "section": "2.5 Removed",
-    "text": "2.5 Removed"
+    "objectID": "index.html#the-basics",
+    "href": "index.html#the-basics",
+    "title": "graphs",
+    "section": "The basics",
+    "text": "The basics\nggplot2 is based on a grammar of graphics (the “gg” in ggplot2) which makes it different from graphics programs that are based on chart types. Think of the old style lego kits that give you building blocks with which you can make whatever you want. To make the most of the package, it’s very helpful to think of it in these terms. Rather than think in terms of names of charts, think in terms of the graphical elements that are needed to create that type of chart. With knowledge of how to put together the basic elements you will be able to create anything you want.\nThis is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books."
   },
   {
     "objectID": "intro.html",
     "href": "intro.html",
-    "title": "3  Introduction",
+    "title": "1  Introduction",
     "section": "",
     "text": "This is a book created from markdown and executable code.\nSee Knuth (1984) for additional discussion of literate programming.\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput. J. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97."
   },
   {
-    "objectID": "summary.html",
-    "href": "summary.html",
-    "title": "4  How to make this book",
-    "section": "",
-    "text": "New Project, New Directory, Quarto book\nedit _quarto.yml\n\n\nTo add GitHub Actions:\n\nadd DESCRIPTION\nadd _book/ to .gitignore\nadd GitHub Actions workflow\nSettings, Actions – give GA write access"
+    "objectID": "grammar.html#components",
+    "href": "grammar.html#components",
+    "title": "2  Grammar of graphics",
+    "section": "2.1 Components",
+    "text": "2.1 Components"
+  },
+  {
+    "objectID": "layers.html#data",
+    "href": "layers.html#data",
+    "title": "3  Layers",
+    "section": "3.1 Data",
+    "text": "3.1 Data\nggplot2 is designed to work only with data frames. That means no vectors, matrices, tables, or lists. If your data is is not in data frame form, you’ll need to convert it to a data frame first. How can you tell if you have the right format? Use class to check:\n\nlibrary(ggplot2)\nclass(BOD)\n\n[1] \"data.frame\"\n\nclass(CO2)\n\n[1] \"nfnGroupedData\" \"nfGroupedData\"  \"groupedData\"    \"data.frame\"    \n\nclass(diamonds)\n\n[1] \"tbl_df\"     \"tbl\"        \"data.frame\"\n\nclass(Titanic)\n\n[1] \"table\"\n\nclass(Seatbelts)\n\n[1] \"mts\"    \"ts\"     \"matrix\" \"array\" \n\n\nAs long as data.frame is one of the classes returned, you’re good to go. So BOD and CO2, two of the built-in base R datasets would work, as would diamonds a dataset that comes with the ggplot2 package. Note that class(diamonds) also returns tbl_df and tbl indications that diamonds is also a tibble, the tidyverse version of a data frame. We’ll return to this topic later. Neither Titanic nor Seatbelts is a data frame so both would produce errors if we tried to create graphs from this data with ggplot2 without converting the data. If you read data from a file with read.csv(), read_csv(), or other functions for reading tabular data, it will be a data.frame."
+  },
+  {
+    "objectID": "layers.html#geoms",
+    "href": "layers.html#geoms",
+    "title": "3  Layers",
+    "section": "3.2 Geoms",
+    "text": "3.2 Geoms\nGeoms are the heart and soul of graphics made with ggplot2. A “geom” is short-hand for geometric object, the shapes that represent. We will begin with six commonly used geoms, shown below.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOnce these geoms are mastered, the hope is that it will be easy to learn additional geoms as you’ll know how they work. (Did you know that geom_bar() and geom_col() produce the same visual? We’ll discuss why later.)"
+  },
+  {
+    "objectID": "layers.html#aesthetic-mappings",
+    "href": "layers.html#aesthetic-mappings",
+    "title": "3  Layers",
+    "section": "3.3 Aesthetic mappings",
+    "text": "3.3 Aesthetic mappings\nAn aesthetic mapping relates visual properties with variables (also called features or columns) in the data. There are a limited number of aesthetic mappings; some of the most common are x, y, color, and fill. For example, to create the following scatterplot, we map x to Income and y to Illiteracy:\n\n\n\n\n\n\n\n\n\n\nFor each geom, there is a small set of required mappings and a much larger set of optional mappings. The catch is that sometimes it may not be clear which mappings are required. In this guide we will always make a special point of indicating the required mappings, as this can be a stumbling block for beginners.\n\n\n\n\n\n\nTip\n\n\n\nWhenever you learn a new geom, pay careful attention to the required mappings.\n\n\nLet’s consider an example. geom_histogram() has one required mapping x or y. A standard histogram with vertical bars is produced by mapping x though there may be circumstances in which a y mapping is desired, for example to create a population pyramid."
+  },
+  {
+    "objectID": "layers.html#continuous-vs.-discrete-mappings",
+    "href": "layers.html#continuous-vs.-discrete-mappings",
+    "title": "3  Layers",
+    "section": "3.4 Continuous vs. discrete mappings",
+    "text": "3.4 Continuous vs. discrete mappings\nIn addition to knowing the required mappings, it is critical to know whether the the visual component (x, y, fill, color, etc.) must be mapped to a continuous (think numerical) variable, discrete (think categorical) variable, or either one. Since a histogram represents the distribution of a numerical variable and has no meaning for categorical variables, the mapping must be to a numerical variable. If you’re working with a data frame you will likely know the data types of its columns, but there are times when you’ll need to check that the data type is correct. There are many ways to check; depending on the method, continuous columns will be marked as numeric, num, dbl, integer, or dbl.\nRecall that we first must be sure that we’re working with a data frame:\n\nclass(CO2)\n\n[1] \"nfnGroupedData\" \"nfGroupedData\"  \"groupedData\"    \"data.frame\"    \n\n\nNow let’s look at the data types of the columns with str():\n\nstr(CO2)\n\nClasses 'nfnGroupedData', 'nfGroupedData', 'groupedData' and 'data.frame':  84 obs. of  5 variables:\n $ Plant    : Ord.factor w/ 12 levels \"Qn1\"&lt;\"Qn2\"&lt;\"Qn3\"&lt;..: 1 1 1 1 1 1 1 2 2 2 ...\n $ Type     : Factor w/ 2 levels \"Quebec\",\"Mississippi\": 1 1 1 1 1 1 1 1 1 1 ...\n $ Treatment: Factor w/ 2 levels \"nonchilled\",\"chilled\": 1 1 1 1 1 1 1 1 1 1 ...\n $ conc     : num  95 175 250 350 500 675 1000 95 175 250 ...\n $ uptake   : num  16 30.4 34.8 37.2 35.3 39.2 39.7 13.6 27.3 37.1 ...\n - attr(*, \"formula\")=Class 'formula'  language uptake ~ conc | Plant\n  .. ..- attr(*, \".Environment\")=&lt;environment: R_EmptyEnv&gt; \n - attr(*, \"outer\")=Class 'formula'  language ~Treatment * Type\n  .. ..- attr(*, \".Environment\")=&lt;environment: R_EmptyEnv&gt; \n - attr(*, \"labels\")=List of 2\n  ..$ x: chr \"Ambient carbon dioxide concentration\"\n  ..$ y: chr \"CO2 uptake rate\"\n - attr(*, \"units\")=List of 2\n  ..$ x: chr \"(uL/L)\"\n  ..$ y: chr \"(umol/m^2 s)\"\n\n\nNote that both conc and uptake are numeric.\nAnother method is to use glimpse() from the dplyr package, which is similar to str() but shows more data and less attribute information:\n\nlibrary(dplyr)\nglimpse(CO2)\n\nRows: 84\nColumns: 5\n$ Plant     &lt;ord&gt; Qn1, Qn1, Qn1, Qn1, Qn1, Qn1, Qn1, Qn2, Qn2, Qn2, Qn2, Qn2, …\n$ Type      &lt;fct&gt; Quebec, Quebec, Quebec, Quebec, Quebec, Quebec, Quebec, Queb…\n$ Treatment &lt;fct&gt; nonchilled, nonchilled, nonchilled, nonchilled, nonchilled, …\n$ conc      &lt;dbl&gt; 95, 175, 250, 350, 500, 675, 1000, 95, 175, 250, 350, 500, 6…\n$ uptake    &lt;dbl&gt; 16.0, 30.4, 34.8, 37.2, 35.3, 39.2, 39.7, 13.6, 27.3, 37.1, …\n\n\nWe see that glimpse() labels these columns as &lt;dbl&gt; rather than num. Again, for our purposes, this distinction isn’t important.\n\n\n\n\n\n\nWarning\n\n\n\nCommon methods for looking at data, head() and View() do NOT show data types so should not be used in this situation.\n\n\nThis distinction refers very specifically to the R data type and will affect many aspects of the graph, including the axis and color scales. For the purposes of ggplot2 continuous variables include all numeric types, which, Discrete mappings will appear as: factor, character, chr, Factor, fct, Ord.factor, ord, logi, logical, lgl, to indicate that the variable is a character, factor, or logical. (The differences among the terms within each group is not important at the moment.)"
+  },
+  {
+    "objectID": "acknowledgments.html#ggplot2-fonts-and-themes",
+    "href": "acknowledgments.html#ggplot2-fonts-and-themes",
+    "title": "4  Acknowledgements",
+    "section": "4.1 ggplot2 fonts and themes",
+    "text": "4.1 ggplot2 fonts and themes\nCustom fonts https://r-graph-gallery.com/custom-fonts-in-R-and-ggplot2.html\nhttp://www.cookbook-r.com/Graphs/Fonts/\nhttps://www.stat.auckland.ac.nz/~paul/R/fontfamily.pdf\nHow to create BBC style graphics https://bbc.github.io/rcookbook/\nTodd Schneider’s Simpsons Theme https://github.com/toddwschneider/flim-springfield/blob/f9b7f123aa8962b56b624fe4032cd4af3f68cc14/analysis/helpers.R\nhttps://towardsdatascience.com/themes-to-spice-up-visualizations-with-ggplot2-3e275038dafa"
+  },
+  {
+    "objectID": "acknowledgments.html#quarto",
+    "href": "acknowledgments.html#quarto",
+    "title": "4  Acknowledgements",
+    "section": "4.2 quarto",
+    "text": "4.2 quarto\n\n4.2.1 code examples\nhttps://github.com/hadley/r4ds/blob/main/_quarto.yml\nhttps://github.com/vizdata-s23/vizdata-s23/blob/main/style/sta313.scss"
+  },
+  {
+    "objectID": "acknowledgments.html#github-actions",
+    "href": "acknowledgments.html#github-actions",
+    "title": "4  Acknowledgements",
+    "section": "4.3 GitHub Actions",
+    "text": "4.3 GitHub Actions"
+  },
+  {
+    "objectID": "acknowledgments.html#section",
+    "href": "acknowledgments.html#section",
+    "title": "4  Acknowledgements",
+    "section": "4.4 ",
+    "text": "4.4"
+  },
+  {
+    "objectID": "acknowledgments.html#removed",
+    "href": "acknowledgments.html#removed",
+    "title": "4  Acknowledgements",
+    "section": "4.5 Removed",
+    "text": "4.5 Removed"
   },
   {
     "objectID": "references.html",
