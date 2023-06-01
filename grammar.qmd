@@ -1,12 +1,16 @@
 # Grammar of graphics
 
+The grammar of graphics on which **ggplot2** is based on...
+
 ```{r}
 #| echo: false
-#| fig-height: 4
-#| fig-width: 4
+#| fig-height: 5
+#| fig-width: 5
 #| fig-align: center
+#| out-width: 50%
 options(tidyverse.quiet = TRUE)
 library(tidyverse)
+library(ggthemes)
 library(patchwork)
 
 bg_color <- "#ffe79b80"
@@ -14,24 +18,23 @@ text_color <- "#af2e2f"
 line_color <- "white"
 fs <- 13
 
-theme_example <- theme(title = element_text(family = "mono", color = text_color),
-        panel.background  = element_rect(fill = bg_color),
-        panel.grid.major.y = element_line(color = line_color),
-        panel.grid.minor.y = element_line(color = line_color),
-        axis.text = element_text(color = "white"))
-
-
 df <- data.frame(state.x77) |> 
   rownames_to_column("State") |> 
   mutate(Region = state.region)
 
 # full graph
 
-ggplot(df, aes(Income, Illiteracy)) + 
-  geom_point(color = "#0099FF") + 
+ggplot(df, aes(Income/1000, Illiteracy/100)) +
+  geom_point(color = "#0099FF") +
   facet_wrap(~Region) +
-  theme_classic(fs) +
-  theme_example
+  scale_x_continuous(name = "Per capita income (in thousands of $)") +
+  scale_y_continuous(name = "Illiteracy rate", labels = scales::percent) +
+  labs(title = "Illiteracy vs. Income by State", caption = "Data: state.x77, base R dataset") +
+  theme_fivethirtyeight(fs, base_family = "mono") +
+  theme(text = element_text(color = text_color),
+        plot.title = element_text(size = rel(1.2)),
+        axis.title = element_text())
+
 ```
 
 
@@ -44,13 +47,12 @@ ggplot(df, aes(Income, Illiteracy)) +
 
 p1 <- ggplot(df, aes(Income, Illiteracy)) +
   geom_point(color = "#0099FF") + 
-  theme_void() + 
+  theme_void(fs) + 
   ggtitle("Layer(s)")
 
 p2 <- ggplot(df, aes(Income, Illiteracy/100)) +
   theme_classic(fs) + 
   ggtitle("Scales") +
-  scale_x_continuous() + 
   scale_y_continuous(name = "Illiteracy", labels = scales::percent)
 
 p3 <- ggplot(df, aes(Income, Illiteracy/100)) +
@@ -71,11 +73,13 @@ p4 <- ggplot(df, aes(Income, Illiteracy/100)) +
 
 p5 <- ggplot(df, aes(Income, Illiteracy/100)) +
   ggtitle("Theme") +
-  theme_void(fs) + 
-  theme_example
+  theme_fivethirtyeight(fs, base_family = "mono") +
+  theme(text = element_text(color = text_color),
+        plot.title = element_text(size = rel(1.2)),
+        axis.text = element_blank())
 
 p1 + p2 + p3
-plot_spacer() + p4 + p5 + plot_spacer() + 
-  plot_layout(widths = c(.5, 1, 1, .5))
+plot_spacer() + p4 + plot_spacer() + p5 + plot_spacer() + 
+  plot_layout(widths = c(.45, 1, .1, 1, .45))
 ```
 

@@ -15,3 +15,9 @@ To add GitHub Actions:
 -   add GitHub Actions workflow
 
 -   Settings, Actions -- give GA write access
+
+## Colors
+
+Blue yellow Color Palette: https://www.color-hex.com/color-palette/80255
+
+Aki no Fujisan Color Palette: https://www.color-hex.com/color-palette/1026103

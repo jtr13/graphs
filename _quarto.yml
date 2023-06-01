@@ -11,10 +11,10 @@ book:
   repo-actions: [edit, issue]
   chapters:
     - index.qmd
-    - grammar.qmd
-    - acknowledgments.qmd
     - intro.qmd
-    - summary.qmd
+    - grammar.qmd
+    - layers.qmd
+    - acknowledgments.qmd
     - references.qmd
 
 bibliography: references.bib

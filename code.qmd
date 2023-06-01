@@ -1,0 +1,4 @@
+# Our first plot
+
+We're almost ready to make our first plot. To review we said that plots are made up of layers, scales, coordinate systems, faceting, and themes. We begin by focusing on the layers and relying on defaults for all the rest. Each layer we said is composed of data, mappings, geoms, stat and position. We will focus on the first three and rely on defaults for stat and position.
+
