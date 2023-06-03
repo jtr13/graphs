@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>graphs - 3&nbsp; Layers</title>
+<title>A Solid Start to ggplot2 - 3&nbsp; Layers</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,7 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./acknowledgments.html" rel="next">
+<link href="./code.html" rel="next">
 <link href="./grammar.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -123,7 +123,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">graphs</a> 
+      <a href="./">A Solid Start to ggplot2</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/jtr13/graphs" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
 </div>
@@ -162,8 +162,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./code.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Our first plot</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./acknowledgments.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Acknowledgements</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Acknowledgements</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -185,9 +191,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#data" id="toc-data" class="nav-link active" data-scroll-target="#data"><span class="header-section-number">3.1</span> Data</a></li>
   <li><a href="#geoms" id="toc-geoms" class="nav-link" data-scroll-target="#geoms"><span class="header-section-number">3.2</span> Geoms</a></li>
   <li><a href="#aesthetic-mappings" id="toc-aesthetic-mappings" class="nav-link" data-scroll-target="#aesthetic-mappings"><span class="header-section-number">3.3</span> Aesthetic mappings</a></li>
-  <li><a href="#continuous-vs.-discrete-mappings" id="toc-continuous-vs.-discrete-mappings" class="nav-link" data-scroll-target="#continuous-vs.-discrete-mappings"><span class="header-section-number">3.4</span> Continuous vs.&nbsp;discrete mappings</a></li>
+  <li><a href="#continuous-vs.-discrete-mappings" id="toc-continuous-vs.-discrete-mappings" class="nav-link" data-scroll-target="#continuous-vs.-discrete-mappings"><span class="header-section-number">3.4</span> Continuous vs.&nbsp;discrete mappings</a>
+  <ul class="collapse">
+  <li><a href="#an-example" id="toc-an-example" class="nav-link" data-scroll-target="#an-example"><span class="header-section-number">3.4.1</span> An example</a></li>
+  </ul></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jtr13/graphs/edit/main/layers.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/jtr13/graphs/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jtr13/graphs/blob/main/layers.qmd" class="toc-action">View source</a></p><p><a href="https://github.com/jtr13/graphs/edit/main/layers.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/jtr13/graphs/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -213,9 +222,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="data" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="data"><span class="header-section-number">3.1</span> Data</h2>
 <p><strong>ggplot2</strong> is designed to work only with data frames. That means no vectors, matrices, tables, or lists. If your data is is not in data frame form, you’ll need to convert it to a data frame first. How can you tell if you have the right format? Use <code>class</code> to check:</p>
-<div class="cell">
+<div class="cell" data-hash="layers_cache/html/unnamed-chunk-1_42f76ae859f6dcba1a4ff4a16f2616ce">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(BOD)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(faithful)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "data.frame"</code></pre>
 </div>
@@ -236,12 +245,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>[1] "mts"    "ts"     "matrix" "array" </code></pre>
 </div>
 </div>
-<p>As long as <code>data.frame</code> is one of the classes returned, you’re good to go. So <code>BOD</code> and <code>CO2</code>, two of the built-in base R datasets would work, as would <code>diamonds</code> a dataset that comes with the <strong>ggplot2</strong> package. Note that <code>class(diamonds)</code> also returns <code>tbl_df</code> and <code>tbl</code> indications that <code>diamonds</code> is also a <em>tibble</em>, the <strong>tidyverse</strong> version of a data frame. We’ll return to this topic later. Neither <code>Titanic</code> nor <code>Seatbelts</code> is a data frame so both would produce errors if we tried to create graphs from this data with <strong>ggplot2</strong> without converting the data. If you read data from a file with <code>read.csv()</code>, <code>read_csv()</code>, or other functions for reading tabular data, it will be a <code>data.frame</code>.</p>
+<p>As long as <code>data.frame</code> is one of the classes returned, you’re good to go. So <code>faithful</code> and <code>CO2</code>, two of the built-in base R datasets would work, as would <code>diamonds</code> a dataset that comes with the <strong>ggplot2</strong> package. Note that <code>class(diamonds)</code> also returns <code>tbl_df</code> and <code>tbl</code> indications that <code>diamonds</code> is also a <em>tibble</em>, the <strong>tidyverse</strong> version of a data frame. We’ll return to this topic later. Neither <code>Titanic</code> nor <code>Seatbelts</code> is a data frame so both would produce errors if we tried to create graphs from this data with <strong>ggplot2</strong> without converting the data. If you read data from a file with <code>read.csv()</code>, <code>read_csv()</code>, or other functions for reading tabular data, it will be a <code>data.frame</code>.</p>
 </section>
 <section id="geoms" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="geoms"><span class="header-section-number">3.2</span> Geoms</h2>
 <p>Geoms are the heart and soul of graphics made with <strong>ggplot2</strong>. A “geom” is short-hand for geometric object, the shapes that represent. We will begin with six commonly used geoms, shown below.</p>
-<div class="cell quarto-layout-panel">
+<div class="cell quarto-layout-panel" data-hash="layers_cache/html/unnamed-chunk-2_820eebcbe8729451632493a4f75352e3">
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="cell-output-display quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
 <p><img src="layers_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="288"></p>
@@ -270,7 +279,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="aesthetic-mappings" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="aesthetic-mappings"><span class="header-section-number">3.3</span> Aesthetic mappings</h2>
 <p>An aesthetic mapping relates visual properties with variables (also called features or columns) in the data. There are a limited number of aesthetic mappings; some of the most common are <code>x</code>, <code>y</code>, <code>color</code>, and <code>fill</code>. For example, to create the following scatterplot, we map <code>x</code> to <code>Income</code> and <code>y</code> to <code>Illiteracy</code>:</p>
-<div class="cell quarto-layout-panel">
+<div class="cell quarto-layout-panel" data-hash="layers_cache/html/unnamed-chunk-3_5125ec8d5baf20573d6891c045ac4b63">
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <p><img src="layers_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="384"></p>
@@ -281,10 +290,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>For each geom, there is a small set of required mappings and a much larger set of optional mappings. The catch is that sometimes it may not be clear which mappings are required. In this guide we will always make a special point of indicating the required mappings, as this can be a stumbling block for beginners.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Tip
@@ -295,7 +304,7 @@ Tip
 </div>
 </div>
 <p>Let’s consider an example. <code>geom_histogram()</code> has <strong>one</strong> required mapping <strong><code>x</code> or <code>y</code></strong>. A standard histogram with vertical bars is produced by mapping <code>x</code> though there may be circumstances in which a <code>y</code> mapping is desired, for example to create a population pyramid.</p>
-<div class="cell quarto-layout-panel">
+<div class="cell quarto-layout-panel" data-hash="layers_cache/html/unnamed-chunk-4_349a9a6da3e32ac30fd0314c134aa23d">
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <p><img src="layers_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="384"></p>
@@ -308,16 +317,30 @@ Tip
 </section>
 <section id="continuous-vs.-discrete-mappings" class="level2" data-number="3.4">
 <h2 data-number="3.4" class="anchored" data-anchor-id="continuous-vs.-discrete-mappings"><span class="header-section-number">3.4</span> Continuous vs.&nbsp;discrete mappings</h2>
-<p>In addition to knowing the required mappings, it is critical to know whether the the visual component (<code>x</code>, <code>y</code>, <code>fill</code>, <code>color</code>, etc.) must be mapped to a <em>continuous</em> (think numerical) variable, <em>discrete</em> (think categorical) variable, or either one. Since a histogram represents the distribution of a numerical variable and has no meaning for categorical variables, the mapping must be to a numerical variable. If you’re working with a data frame you will likely know the data types of its columns, but there are times when you’ll need to check that the data type is correct. There are many ways to check; depending on the method, continuous columns will be marked as <code>numeric</code>, <code>num</code>, <code>dbl</code>, <code>integer</code>, or <code>dbl</code>.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Don’t skip this section.
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>It’s really important. 🤓</p>
+</div>
+</div>
+<p>In addition to knowing the required mappings, it is critical to know whether the the visual component (<code>x</code>, <code>y</code>, <code>fill</code>, <code>color</code>, etc.) must be mapped to a <em>continuous</em> (think numerical) variable, <em>discrete</em> (think categorical) variable, or either one. If you’re working with columns in a data frame you will likely know their data types, but there are times when you’ll need to check that the data types are correct. There are many ways to check; depending on the method, continuous columns will be marked as <code>numeric</code>, <code>num</code>, <code>dbl</code>, <code>integer</code>, or <code>dbl</code>. <em>Discrete</em> mappings will appear as: <code>factor</code>, <code>character</code>, <code>chr</code>, <code>Factor</code>, <code>fct</code>, <code>Ord.factor</code>, <code>ord</code>, <code>logi</code>, <code>logical</code>, <code>lgl</code>, to indicate that the variable is a character, factor, or logical. (The differences among the terms within each group are not important at the moment.)</p>
+<p>Let’s consider the built-in dataset <code>CO2</code>. Try running the code shown below for practice.</p>
 <p>Recall that we first must be sure that we’re working with a data frame:</p>
-<div class="cell">
+<div class="cell" data-hash="layers_cache/html/unnamed-chunk-5_217aa09223dba2d7375bff633b59b3b8">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(CO2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "nfnGroupedData" "nfGroupedData"  "groupedData"    "data.frame"    </code></pre>
 </div>
 </div>
 <p>Now let’s look at the data types of the columns with <code>str()</code>:</p>
-<div class="cell">
+<div class="cell" data-hash="layers_cache/html/unnamed-chunk-6_98fef626ae35ff9eb1fe47678f926957">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(CO2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Classes 'nfnGroupedData', 'nfGroupedData', 'groupedData' and 'data.frame':  84 obs. of  5 variables:
@@ -338,9 +361,9 @@ Tip
   ..$ y: chr "(umol/m^2 s)"</code></pre>
 </div>
 </div>
-<p>Note that both <code>conc</code> and <code>uptake</code> are numeric.</p>
+<p>Note that both <code>conc</code> and <code>uptake</code> have data type <code>num</code> which is <em>continuous</em>, while <code>Plant</code>, <code>Type</code> and <code>Treatment</code> have data types <code>Factor</code> or <code>Ord.factor</code> which are <em>discrete</em>.</p>
 <p>Another method is to use <code>glimpse()</code> from the <strong>dplyr</strong> package, which is similar to <code>str()</code> but shows more data and less attribute information:</p>
-<div class="cell">
+<div class="cell" data-hash="layers_cache/html/unnamed-chunk-7_41acc08000a9f65e788b824f9cf09d1d">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(CO2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -353,23 +376,58 @@ $ conc      &lt;dbl&gt; 95, 175, 250, 350, 500, 675, 1000, 95, 175, 250, 350, 50
 $ uptake    &lt;dbl&gt; 16.0, 30.4, 34.8, 37.2, 35.3, 39.2, 39.7, 13.6, 27.3, 37.1, …</code></pre>
 </div>
 </div>
-<p>We see that <code>glimpse()</code> labels these columns as <code>&lt;dbl&gt;</code> rather than <code>num</code>. Again, for our purposes, this distinction isn’t important.</p>
-<div class="callout callout-style-default callout-warning callout-titled">
+<p>We see that <code>glimpse()</code> labels the <em>continuous</em> (numeric) columns as <code>&lt;dbl&gt;</code> rather than <code>num</code> and the <em>discrete</em> columns as <code>&lt;fct&gt;</code> and <code>&lt;ord&gt;</code>. Again, for our purposes, this distinction isn’t important.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Warning
+Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Common methods for looking at data, <code>head()</code> and <code>View()</code> do NOT show data types so should not be used in this situation.</p>
+<p><code>View()</code> and <code>head()</code> – common methods for looking at data – do NOT show data types so should not be used in this situation.</p>
 </div>
 </div>
-<p>This distinction refers very specifically to the R data type and will affect many aspects of the graph, including the axis and color scales. For the purposes of <strong>ggplot2</strong> <em>continuous</em> variables include all <em>numeric</em> types, which, <em>Discrete</em> mappings will appear as: <code>factor</code>, <code>character</code>, <code>chr</code>, <code>Factor</code>, <code>fct</code>, <code>Ord.factor</code>, <code>ord</code>, <code>logi</code>, <code>logical</code>, <code>lgl</code>, to indicate that the variable is a character, factor, or logical. (The differences among the terms within each group is not important at the moment.)</p>
+<section id="an-example" class="level3" data-number="3.4.1">
+<h3 data-number="3.4.1" class="anchored" data-anchor-id="an-example"><span class="header-section-number">3.4.1</span> An example</h3>
+<p>Suppose we wish to draw histograms of the <em>continuous</em> variables in the <code>CO2</code> dataset. Since histogram represents the distribution of a numerical variable and has no meaning for categorical variables, the mapping must be to a numerical variable. Our choices therefore are <code>conc</code> and <code>uptake</code>:</p>
+<div class="cell quarto-layout-panel" data-hash="layers_cache/html/unnamed-chunk-8_383b47b6aa3d620c220bcb93ae146ec2">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 4.8%;justify-content: center;">
+<p>&nbsp;</p>
+</div>
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 42.9%;justify-content: center;">
+<p><img src="layers_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="384"></p>
+</div>
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 4.8%;justify-content: center;">
+<p>&nbsp;</p>
+</div>
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 42.9%;justify-content: center;">
+<p><img src="layers_files/figure-html/unnamed-chunk-8-2.png" class="img-fluid" width="384"></p>
+</div>
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 4.8%;justify-content: center;">
+<p>&nbsp;</p>
+</div>
+</div>
+</div>
+<p>If we try to try, though, to draw a histogram of a <em>discrete</em> variable, such as <code>Plant</code>, we’ll get an error:</p>
+<div class="cell" data-hash="layers_cache/html/unnamed-chunk-9_65de5ec79cee96aa48c6036e6b5cea62">
+<div class="cell-output cell-output-error">
+<pre><code>Error in `geom_histogram()`:
+! Problem while computing stat.
+ℹ Error occurred in the 1st layer.
+Caused by error in `setup_params()`:
+! `stat_bin()` requires a continuous x aesthetic
+✖ the x aesthetic is discrete.
+ℹ Perhaps you want `stat="count"`?</code></pre>
+</div>
+</div>
+<p>We’re ready now to combine the three essentials of a layer–data, an aesthetic mapping, and a geom–to create our first plot.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -613,8 +671,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./acknowledgments.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Acknowledgements</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./code.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Our first plot</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
