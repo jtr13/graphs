@@ -8,14 +8,14 @@ The layers represent the data, what the graph is all about. Everything else--the
 
 ```{r}
 library(ggplot2)
-class(BOD)
+class(faithful)
 class(CO2)
 class(diamonds)
 class(Titanic)
 class(Seatbelts)
 ```
 
-As long as `data.frame` is one of the classes returned, you're good to go. So `BOD` and `CO2`, two of the built-in base R datasets would work, as would `diamonds` a dataset that comes with the **ggplot2** package. Note that `class(diamonds)` also returns `tbl_df` and `tbl` indications that `diamonds` is also a *tibble*, the **tidyverse** version of a data frame. We'll return to this topic later. Neither `Titanic` nor `Seatbelts` is a data frame so both would produce errors if we tried to create graphs from this data with **ggplot2** without converting the data. If you read data from a file with `read.csv()`, `read_csv()`, or other functions for reading tabular data, it will be a `data.frame`.
+As long as `data.frame` is one of the classes returned, you're good to go. So `faithful` and `CO2`, two of the built-in base R datasets would work, as would `diamonds` a dataset that comes with the **ggplot2** package. Note that `class(diamonds)` also returns `tbl_df` and `tbl` indications that `diamonds` is also a *tibble*, the **tidyverse** version of a data frame. We'll return to this topic later. Neither `Titanic` nor `Seatbelts` is a data frame so both would produce errors if we tried to create graphs from this data with **ggplot2** without converting the data. If you read data from a file with `read.csv()`, `read_csv()`, or other functions for reading tabular data, it will be a `data.frame`.
 
 ## Geoms
 
@@ -26,55 +26,59 @@ Geoms are the heart and soul of graphics made with **ggplot2**. A "geom" is shor
 #| fig-height: 3
 #| fig-width: 3
 #| layout-ncol: 3
-#| message: false
 
-options(tidyverse.quiet = TRUE)
+
 library(tidyverse)
+source("_common.R")
 
 df <- data.frame(state.x77) |> 
   rownames_to_column("State") |> 
   mutate(Region = state.region)
 
-fs <- 13
 m <- .25
-color <- "cornflowerblue"
 
 ggplot(df, aes(Income, Illiteracy)) + 
-  geom_point(color = color) + ggtitle("geom_point()") + 
+  geom_point(color = data_color) + ggtitle("geom_point()") + 
   scale_x_continuous(expand = expansion(mult = m)) +
   scale_y_continuous(expand = expansion(mult = m)) +
-  theme_void(fs, base_family = "mono")
+  theme_void(fs, base_family = "Menlo") + 
+  theme(plot.title = element_text(color = "#3379be", face = "bold"))
 
 ggplot(df, aes(Income)) + 
-  geom_histogram(bins = 15, fill = color) + ggtitle("geom_histogram()") + 
+  geom_histogram(bins = 15, fill = data_color) + ggtitle("geom_histogram()") + 
   scale_x_continuous(expand = expansion(mult = m)) +
   scale_y_continuous(expand = expansion(mult = m)) +
-  theme_void(fs, base_family = "mono")
+  theme_void(fs, base_family = "Menlo") + 
+  theme(plot.title = element_text(color = "#3379be", face = "bold"))
 
 ggplot(df, aes(Income)) + 
-  geom_density(color = color, linewidth = 2) + 
+  geom_density(color = data_color, linewidth = 2) + 
   ggtitle("geom_density()") + 
   scale_x_continuous(expand = expansion(mult = m)) +
   scale_y_continuous(expand = expansion(mult = m)) +
-  theme_void(fs, base_family = "mono")
+  theme_void(fs, base_family = "Menlo") + 
+  theme(plot.title = element_text(color = "#3379be", face = "bold"))
 
 ggplot(df, aes(x = Region, y = Income)) + 
-  geom_boxplot(color = color) + ggtitle("geom_boxplot()") + 
+  geom_boxplot(color = data_color) + ggtitle("geom_boxplot()") + 
   scale_x_discrete(expand = expansion(mult = m)) +
   scale_y_continuous(expand = expansion(mult = m)) +
-  theme_void(fs, base_family = "mono")
+  theme_void(fs, base_family = "Menlo") + 
+  theme(plot.title = element_text(color = "#3379be", face = "bold"))
 
 ggplot(df, aes(x = Region)) + 
-  geom_bar(fill = color) + ggtitle("geom_bar()") + 
+  geom_bar(fill = data_color) + ggtitle("geom_bar()") + 
   scale_x_discrete(expand = expansion(mult = 4*m)) +
   scale_y_continuous(expand = expansion(mult = 1.5*m)) +
-  theme_void(fs, base_family = "mono")
+  theme_void(fs, base_family = "Menlo") + 
+  theme(plot.title = element_text(color = "#3379be", face = "bold"))
 
 ggplot(df, aes(x = Region)) + 
-  geom_bar(fill = color) + ggtitle("geom_col()") +
+  geom_bar(fill = data_color) + ggtitle("geom_col()") +
   scale_x_discrete(expand = expansion(mult = 4*m)) +
   scale_y_continuous(expand = expansion(mult = 1.5*m)) +
-  theme_void(fs, base_family = "mono")
+  theme_void(fs, base_family = "Menlo") + 
+  theme(plot.title = element_text(color = "#3379be", face = "bold"))
 ```
 
 Once these geoms are mastered, the hope is that it will be easy to learn additional geoms as you'll know how they work. (Did you know that `geom_bar()` and `geom_col()` produce the same visual? We'll discuss why later.)
@@ -85,16 +89,14 @@ An aesthetic mapping relates visual properties with variables (also called featu
 
 ```{r}
 #| echo: false
-#| fig-height: 4
-#| fig-width: 4
 #| layout-ncol: 2
 
 ggplot(df, aes(Income/1000, Illiteracy/100)) +
-  geom_point(color = "#0099FF") +
+  geom_point(color = data_color) +
   scale_x_continuous(name = "Per capita income (in thousands of $)") +
   scale_y_continuous(name = "Illiteracy rate", labels = scales::percent) +
   labs(title = "Illiteracy vs. Income by State", caption = "Data: state.x77, base R dataset") +
-  theme_bw(fs)
+  theme_bw(13)
 
 source("helpers.R")
 arrow_chart(domain = c("x", "y"), range = c("Income", "Illiteracy")) +
@@ -112,19 +114,17 @@ Let's consider an example. `geom_histogram()` has **one** required mapping **`x`
 
 ```{r}
 #| echo: false
-#| fig-height: 4
-#| fig-width: 4
 #| layout-ncol: 2
 
 ggplot(df, aes(x = Income)) +
-  geom_histogram(bins = 15, color = "black", fill = color) +
+  geom_histogram(bins = 15, color = "black", fill = data_color) +
   scale_x_continuous(expand = expansion(mult = m)) +
   scale_y_continuous(expand = expansion(mult = m)) +
   ggtitle("x mapped to variable") +
   theme_void(fs)
 
 ggplot(df, aes(y = Income)) +
-  geom_histogram(bins = 15, color = "black", fill = color) +
+  geom_histogram(bins = 15, color = "black", fill = data_color) +
   scale_x_continuous(expand = expansion(mult = m)) +
   scale_y_continuous(expand = expansion(mult = m)) +
   ggtitle("y mapped to variable") +
@@ -132,10 +132,17 @@ ggplot(df, aes(y = Income)) +
 
 ```
 
-
 ## Continuous vs. discrete mappings
 
-In addition to knowing the required mappings, it is critical to know whether the the visual component (`x`, `y`, `fill`, `color`, etc.) must be mapped to a *continuous* (think numerical) variable, *discrete* (think categorical) variable, or either one. Since a histogram represents the distribution of a numerical variable and has no meaning for categorical variables, the mapping must be to a numerical variable. If you're working with a data frame you will likely know the data types of its columns, but there are times when you'll need to check that the data type is correct. There are many ways to check; depending on the method, continuous columns will be marked as `numeric`, `num`, `dbl`, `integer`, or `dbl`. 
+::: callout-tip
+## Don't skip this section.
+
+It's really important. 🤓
+:::
+
+In addition to knowing the required mappings, it is critical to know whether the the visual component (`x`, `y`, `fill`, `color`, etc.) must be mapped to a *continuous* (think numerical) variable, *discrete* (think categorical) variable, or either one. If you're working with columns in a data frame you will likely know their data types, but there are times when you'll need to check that the data types are correct. There are many ways to check; depending on the method, continuous columns will be marked as `numeric`, `num`, `dbl`, `integer`, or `dbl`. *Discrete* mappings will appear as: `factor`, `character`, `chr`, `Factor`, `fct`, `Ord.factor`, `ord`, `logi`, `logical`, `lgl`, to indicate that the variable is a character, factor, or logical. (The differences among the terms within each group are not important at the moment.)
+
+Let's consider the built-in dataset `CO2`. Try running the code shown below for practice.
 
 Recall that we first must be sure that we're working with a data frame:
 
@@ -149,7 +156,7 @@ Now let's look at the data types of the columns with `str()`:
 str(CO2)
 ```
 
-Note that both `conc` and `uptake` are numeric.
+Note that both `conc` and `uptake` have data type `num` which is *continuous*, while `Plant`, `Type` and `Treatment` have data types `Factor` or `Ord.factor` which are *discrete*.
 
 Another method is to use `glimpse()` from the **dplyr** package, which is similar to `str()` but shows more data and less attribute information:
 
@@ -158,16 +165,42 @@ library(dplyr)
 glimpse(CO2)
 ```
 
-We see that `glimpse()` labels these columns as `<dbl>` rather than `num`. Again, for our purposes, this distinction isn't important.
+We see that `glimpse()` labels the *continuous* (numeric) columns as `<dbl>` rather than `num` and the *discrete* columns as `<fct>` and `<ord>`. Again, for our purposes, this distinction isn't important.
 
-::: callout-warning
-
-Common methods for looking at data, `head()` and `View()` do NOT show data types so should not be used in this situation.
-
+::: callout-tip
+`View()` and `head()` -- common methods for looking at data -- do NOT show data types so should not be used in this situation.
 :::
 
+### An example
 
+Suppose we wish to draw histograms of the *continuous* variables in the `CO2` dataset. Since histogram represents the distribution of a numerical variable and has no meaning for categorical variables, the mapping must be to a numerical variable. Our choices therefore are `conc` and `uptake`:
 
-This distinction refers very specifically to the R data type and will affect many aspects of the graph, including the axis and color scales. For the purposes of **ggplot2** *continuous* variables include all *numeric* types, which,  *Discrete* mappings will appear as: `factor`, `character`, `chr`, `Factor`, `fct`, `Ord.factor`, `ord`, `logi`, `logical`, `lgl`, to indicate that the variable is a character, factor, or logical. (The differences among the terms within each group is not important at the moment.)
+```{r}
+#| echo: false
+#| fig-height: 4
+#| fig-width: 4
+#| layout: [[-5, 45, -5, 45, -5]]
 
+ggplot(CO2, aes(conc)) + 
+  geom_histogram(breaks = seq(0, 1000, 125), color = "black", fill = data_color) +
+  ggtitle("Histogram of conc") + 
+  theme_bw(16)
 
+ggplot(CO2, aes(uptake)) + 
+  geom_histogram(breaks = seq(0, 50, 5), color = "black", fill = data_color) +
+  ggtitle("Histogram of uptake") + 
+  theme_bw(16)
+```
+
+If we try to try, though, to draw a histogram of a *discrete* variable, such as `Plant`, we'll get an error:
+
+```{r}
+#| echo: false
+#| error: true
+ggplot(CO2, aes(Plant)) + 
+  geom_histogram(color = "black", fill = data_color) +
+  ggtitle("Histogram of Plant") + 
+  theme_bw(fs)
+```
+
+We're ready now to combine the three essentials of a layer--data, an aesthetic mapping, and a geom--to create our first plot.

@@ -5,3 +5,5 @@
 _book/
 /.quarto/
 .DS_Store
+*_cache/
+*_files/

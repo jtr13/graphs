@@ -2,18 +2,19 @@ project:
   type: book
 
 book:
-  title: "graphs"
-  author: "Jane Doe"
+  title: "A Solid Start to ggplot2"
+  author: "Joyce Robbins"
   date: "5/26/2023"
   site-url: https://jtr13.github.io/graphs
   repo-url: https://github.com/jtr13/graphs
   repo-branch: main
-  repo-actions: [edit, issue]
+  repo-actions: [source, edit, issue]
   chapters:
     - index.qmd
     - intro.qmd
     - grammar.qmd
     - layers.qmd
+    - code.qmd
     - acknowledgments.qmd
     - references.qmd
 
@@ -21,7 +22,19 @@ bibliography: references.bib
 
 format:
   html:
-    theme: [cerulean, style/graphs.scss]
+    theme: [default, style/graphs.scss]
+    code-link: true
+    highlight-style: style/joyce.theme
+    callout-icon: false
+    
+execute:
+  echo: true
+  warning: false
+  message: false
+  error: true
+  cache: true
+  fig-height: 4
+  fig-width: 4
 
 editor: source
 

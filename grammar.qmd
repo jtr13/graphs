@@ -4,19 +4,13 @@ The grammar of graphics on which **ggplot2** is based on...
 
 ```{r}
 #| echo: false
-#| fig-height: 5
-#| fig-width: 5
 #| fig-align: center
 #| out-width: 50%
-options(tidyverse.quiet = TRUE)
 library(tidyverse)
 library(ggthemes)
 library(patchwork)
+source("_common.R")
 
-bg_color <- "#ffe79b80"
-text_color <- "#af2e2f"
-line_color <- "white"
-fs <- 13
 
 df <- data.frame(state.x77) |> 
   rownames_to_column("State") |> 
@@ -25,12 +19,12 @@ df <- data.frame(state.x77) |>
 # full graph
 
 ggplot(df, aes(Income/1000, Illiteracy/100)) +
-  geom_point(color = "#0099FF") +
+  geom_point(color = data_color) +
   facet_wrap(~Region) +
   scale_x_continuous(name = "Per capita income (in thousands of $)") +
   scale_y_continuous(name = "Illiteracy rate", labels = scales::percent) +
   labs(title = "Illiteracy vs. Income by State", caption = "Data: state.x77, base R dataset") +
-  theme_fivethirtyeight(fs, base_family = "mono") +
+  theme_fivethirtyeight(13, base_family = "mono") +
   theme(text = element_text(color = text_color),
         plot.title = element_text(size = rel(1.2)),
         axis.title = element_text())
@@ -44,9 +38,10 @@ ggplot(df, aes(Income/1000, Illiteracy/100)) +
 ```{r}
 #| echo: false
 #| fig-height: 3
+#| fig-width: 7
 
 p1 <- ggplot(df, aes(Income, Illiteracy)) +
-  geom_point(color = "#0099FF") + 
+  geom_point(color = data_color) + 
   theme_void(fs) + 
   ggtitle("Layer(s)")
 
