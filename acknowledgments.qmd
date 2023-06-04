@@ -1,37 +1,48 @@
-# Acknowledgements
+# Making this book
 
-## ggplot2 fonts and themes
+-   New Project, New Directory, Quarto book
+
+-   edit `_quarto.yml`
+
+To add GitHub Actions:
+
+-   add `DESCRIPTION`
+
+-   add `_book/` to `.gitignore`
+
+-   add GitHub Actions workflow
+
+-   Settings, Actions -- give GA write access
+
+## Colors
+
+Blue yellow Color Palette: https://www.color-hex.com/color-palette/80255
+
+Aki no Fujisan Color Palette: https://www.color-hex.com/color-palette/1026103
+
+
+## ggplot2 fonts
 
 **Custom fonts** https://r-graph-gallery.com/custom-fonts-in-R-and-ggplot2.html
 
 http://www.cookbook-r.com/Graphs/Fonts/
 
-https://www.stat.auckland.ac.nz/\~paul/R/fontfamily.pdf
-
-How to create BBC style graphics https://bbc.github.io/rcookbook/
-
-Todd Schneider's Simpsons Theme https://github.com/toddwschneider/flim-springfield/blob/f9b7f123aa8962b56b624fe4032cd4af3f68cc14/analysis/helpers.R
-
-https://towardsdatascience.com/themes-to-spice-up-visualizations-with-ggplot2-3e275038dafa
+https://www.stat.auckland.ac.nz/~paul/R/fontfamily.pdf
 
 ## quarto
 
 ### _quarto.yml
 
-https://github.com/hadley/r4ds/blob/main/\_quarto.yml
+https://github.com/hadley/r4ds/blob/main/_quarto.yml
 
 https://github.com/vizdata-s23/vizdata-s23/blob/main/style/sta313.scss
 
-## syntax highlighting
+## Syntax highlighting
 
 https://www.garrickadenbuie.com/blog/pandoc-syntax-highlighting-examples/
 
-https://raw.githubusercontent.com/tajmone/pandoc-goodies/master/skylighting/css/built-in-styles/zenburn.css
+Translation between syntax highlighting terms and CSS classes:
+[https://raw.githubusercontent.com/tajmone/pandoc-goodies/master/skylighting/css/built-in-styles/zenburn.css](https://raw.githubusercontent.com/tajmone/pandoc-goodies/master/skylighting/css/built-in-styles/zenburn.css)
 
 ## GitHub Actions
 
-## 
-
-## Removed
-
-#

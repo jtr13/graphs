@@ -1,12 +1,16 @@
 # Preface {.unnumbered}
 
-This tutorial is designed for R users with no experience with **ggplot2** or those who have tried to learn but got stuck along the way. It is not designed to be a comprehensive guide but rather to build a solid foundation. It differs from other resources in the following ways:
+This tutorial is designed for R users with no experience with ggplot2 or those who have tried to learn but got stuck along the way. It is not designed to be a comprehensive guide but rather to build a solid foundation. It differs from other resources in the following ways:
 
-* We begin with the grammar of graphics, the philosophical approach upon which **ggplot2** is based. 
+* *Theory* We begin with the grammar of graphics, the philosophical approach upon which ggplot2 is based. 
 
-* We focus on data types and data shape. From my experience a good portion of **ggplot2** problems are caused by data having the wrong *type* or wrong *shape* rather than the wrong **ggplot2** code.
+* *Data* We focus on data types and data shape. From my experience a good portion of ggplot2 problems are caused by data having the wrong *type* or wrong *shape* rather than the wrong ggplot2 code.
 
-* We focus on the elements that matter most for creating effective graphs: the data layers, scales, and faceting. We pay minimal attention to theme (non-data) elements such as tweaking the size and positions of labels and the like. As such, this is not a comprehensive guide. If you have a basic understanding of **ggplot2** and wish to learn how to do something specific, the following are great resources: [ggplot2: Elegant Graphics for Data Analysis (3e)](https://ggplot2-book.org/) or [R Graphics Cookbook, 2nd edition](https://r-graphics.org/)
+* *Essentials* We focus on the elements that matter most for creating effective graphs: the data layers, scales, and faceting. We pay minimal attention to theme (non-data) elements such as tweaking the size and positions of labels and the like. As such, this is not a comprehensive guide. If you have a basic understanding of ggplot2 and wish to learn how to do something specific, the following are great resources: [ggplot2: Elegant Graphics for Data Analysis (3e)](https://ggplot2-book.org/) or [R Graphics Cookbook, 2nd edition](https://r-graphics.org/)
+
+* *Good graphs*
+
+* *Errors*
 
 ## Setup
 
@@ -14,7 +18,7 @@ As this is not an introduction to R, you probably already have R installed. If y
 
 ## The basics
 
-**ggplot2** is based on a *grammar of graphics* (the "gg" in **ggplot2**) which makes it different from graphics programs that are based on chart types. Think of the old style lego kits that give you building blocks with which you can make whatever you want. To make the most of the package, it's very helpful to think of it in these terms. Rather than think in terms of names of charts, think in terms of the graphical elements that are needed to create that type of chart. With knowledge of how to put together the basic elements you will be able to create anything you want.
+ggplot2 is based on a *grammar of graphics* (the "gg" in ggplot2) which makes it different from graphics programs that are based on chart types. Think of the old style lego kits that give you building blocks with which you can make whatever you want. To make the most of the package, it's very helpful to think of it in these terms. Rather than think in terms of names of charts, think in terms of the graphical elements that are needed to create that type of chart. With knowledge of how to put together the basic elements you will be able to create anything you want.
 
 
 

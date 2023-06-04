@@ -4,7 +4,7 @@ project:
 book:
   title: "A Solid Start to ggplot2"
   author: "Joyce Robbins"
-  date: "5/26/2023"
+  date: today
   site-url: https://jtr13.github.io/graphs
   repo-url: https://github.com/jtr13/graphs
   repo-branch: main
@@ -14,9 +14,10 @@ book:
     - intro.qmd
     - grammar.qmd
     - layers.qmd
-    - code.qmd
+    - geoms.qmd
     - acknowledgments.qmd
     - references.qmd
+    - appendix.qmd
 
 bibliography: references.bib
 
@@ -26,15 +27,21 @@ format:
     code-link: true
     highlight-style: style/joyce.theme
     callout-icon: false
+    fig-width: 4
+    fig-height: 3
+    
+knitr:
+  opts_chunk: 
+    fig.align: center
+    out.width: 50%
+    
     
 execute:
   echo: true
   warning: false
   message: false
   error: true
-  cache: true
-  fig-height: 4
-  fig-width: 4
+  cache: false
 
 editor: source
 
