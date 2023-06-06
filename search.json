@@ -77,11 +77,18 @@
     "text": "There’s a long history in R, dating back to the development of its predecessor, S, of following best practices for creating statistic graphics. Many of the help files for base R and ggplot2 plotting functions contain references to research by William Cleveland and others on creating effective graphs. (add references)↩︎"
   },
   {
-    "objectID": "geoms.html#section",
-    "href": "geoms.html#section",
-    "title": "4  Five more geoms",
-    "section": "4.1 ",
-    "text": "4.1 \n\nlibrary(ggplot2)\nggplot(faithful, aes(x = eruptions, y = after_stat(density))) +\n  geom_histogram(breaks = seq(1.5, 5.5, .25), color = \"blue\",\n                 fill = \"cornflowerblue\", alpha = .5) +\n  geom_density(linewidth = 1.5, color = \"red\")\n\n\n\n\n\n\n\n\n\nggplot(iris, aes(Sepal.Width, Sepal.Length)) + geom_point()\n\n\n\n\n\n\n\n\n\nggplot(iris, aes(Sepal.Width, Sepal.Length)) + geom_point()"
+    "objectID": "geoms.html#geom_histogram",
+    "href": "geoms.html#geom_histogram",
+    "title": "4  Six geoms",
+    "section": "4.1 geom_histogram()",
+    "text": "4.1 geom_histogram()"
+  },
+  {
+    "objectID": "geoms.html#geom_density",
+    "href": "geoms.html#geom_density",
+    "title": "4  Six geoms",
+    "section": "4.2 geom_density()",
+    "text": "4.2 geom_density()\n\nlibrary(ggplot2)\nggplot(faithful, aes(x = eruptions, y = after_stat(density))) +\n  geom_histogram(breaks = seq(1.5, 5.5, .25), color = \"blue\",\n                 fill = \"cornflowerblue\", alpha = .5) +\n  geom_density(linewidth = 1.5, color = \"red\")"
   },
   {
     "objectID": "acknowledgments.html#colors",

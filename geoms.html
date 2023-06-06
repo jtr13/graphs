@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>A Solid Start to ggplot2 - 4&nbsp; Five more geoms</title>
+<title>A Solid Start to ggplot2 - 4&nbsp; Six geoms</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -108,7 +108,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./geoms.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Five more geoms</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./geoms.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Six geoms</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -163,7 +163,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./geoms.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Five more geoms</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Six geoms</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -194,7 +194,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#section" id="toc-section" class="nav-link active" data-scroll-target="#section"><span class="header-section-number">4.1</span> </a></li>
+  <li><a href="#geom_histogram" id="toc-geom_histogram" class="nav-link active" data-scroll-target="#geom_histogram"><span class="header-section-number">4.1</span> <code>geom_histogram()</code></a></li>
+  <li><a href="#geom_density" id="toc-geom_density" class="nav-link" data-scroll-target="#geom_density"><span class="header-section-number">4.2</span> <code>geom_density()</code></a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jtr13/graphs/blob/main/geoms.qmd" class="toc-action">View source</a></p><p><a href="https://github.com/jtr13/graphs/edit/main/geoms.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/jtr13/graphs/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -203,7 +204,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Five more geoms</span></h1>
+<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Six geoms</span></h1>
 </div>
 
 
@@ -218,8 +219,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<section id="section" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="section"><span class="header-section-number">4.1</span> </h2>
+<section id="geom_histogram" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="geom_histogram"><span class="header-section-number">4.1</span> <code>geom_histogram()</code></h2>
+</section>
+<section id="geom_density" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="geom_density"><span class="header-section-number">4.2</span> <code>geom_density()</code></h2>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(faithful, <span class="fu">aes</span>(<span class="at">x =</span> eruptions, <span class="at">y =</span> <span class="fu">after_stat</span>(density))) <span class="sc">+</span></span>
@@ -230,26 +234,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="geoms_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" style="width:50.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell" data-layout-align="right">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(Sepal.Width, Sepal.Length)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-right">
-<figure class="figure">
-<p><img src="geoms_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" style="width:50.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell" data-layout-align="left">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(Sepal.Width, Sepal.Length)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-left">
-<figure class="figure">
-<p><img src="geoms_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" style="width:50.0%"></p>
 </figure>
 </div>
 </div>
