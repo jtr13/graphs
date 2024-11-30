@@ -44,7 +44,7 @@
     "href": "grammar.html",
     "title": "2  Grammar of graphics",
     "section": "",
-    "text": "2.1 Components",
+    "text": "2.1 Components\nThe grammar of graphics on which ggplot2 is based on…",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Grammar of graphics</span>"
     ]
@@ -54,7 +54,7 @@
     "href": "layers.html",
     "title": "3  Layers",
     "section": "",
-    "text": "3.1 Data\nggplot2 is designed to work only with data frames. That means no vectors, matrices, tables, or lists. If your data is is not in data frame form, you’ll need to convert it to a data frame first. How can you tell if you have the right format? Use class to check:\nlibrary(ggplot2)\nclass(faithful)\n\n[1] \"data.frame\"\n\nclass(CO2)\n\n[1] \"nfnGroupedData\" \"nfGroupedData\"  \"groupedData\"    \"data.frame\"    \n\nclass(diamonds)\n\n[1] \"tbl_df\"     \"tbl\"        \"data.frame\"\n\nclass(Titanic)\n\n[1] \"table\"\n\nclass(Seatbelts)\n\n[1] \"mts\"    \"ts\"     \"matrix\" \"array\"\nAs long as data.frame is one of the classes returned, you’re good to go. So faithful and CO2, two of the built-in base R datasets would work, as would diamonds a dataset that comes with the ggplot2 package. Note that class(diamonds) also returns tbl_df and tbl indications that diamonds is also a tibble, the tidyverse version of a data frame. We’ll return to this topic later. Neither Titanic nor Seatbelts is a data frame so both would produce errors if we tried to create graphs from this data with ggplot2 without converting the data. If you read data from a file with read.csv(), read_csv(), or other functions for reading tabular data, it will be a data.frame.",
+    "text": "3.1 Data\nThe layers represent the data, what the graph is all about. Everything else–the scales, coordinate system, faceting, and themes–are accessories to make the data clear and comprehensible. Therefore it is essential to get the data right. Even if everything else looks perfect, if the data is wrong the graph is worthless. Each layer consists of five components: 1) data, 2) aesthetic mapping, 3) geom, 4) stat, and 5) position. Most of the time you can rely on the defaults for 4) stat and 5) position, so we’ll start with the first three components, all of which are required.\nggplot2 is designed to work only with data frames. That means no vectors, matrices, tables, or lists. If your data is is not in data frame form, you’ll need to convert it to a data frame first. How can you tell if you have the right format? Use class to check:\nlibrary(ggplot2)\nclass(faithful)\n\n[1] \"data.frame\"\n\nclass(CO2)\n\n[1] \"nfnGroupedData\" \"nfGroupedData\"  \"groupedData\"    \"data.frame\"    \n\nclass(diamonds)\n\n[1] \"tbl_df\"     \"tbl\"        \"data.frame\"\n\nclass(Titanic)\n\n[1] \"table\"\n\nclass(Seatbelts)\n\n[1] \"mts\"    \"ts\"     \"matrix\" \"array\"\nAs long as data.frame is one of the classes returned, you’re good to go. So faithful and CO2, two of the built-in base R datasets would work, as would diamonds a dataset that comes with the ggplot2 package. Note that class(diamonds) also returns tbl_df and tbl indications that diamonds is also a tibble, the tidyverse version of a data frame. We’ll return to this topic later. Neither Titanic nor Seatbelts is a data frame so both would produce errors if we tried to create graphs from this data with ggplot2 without converting the data. If you read data from a file with read.csv(), read_csv(), or other functions for reading tabular data, it will be a data.frame.",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Layers</span>"
     ]
@@ -134,7 +134,7 @@
     "href": "acknowledgments.html",
     "title": "5  Making this book",
     "section": "",
-    "text": "5.1 Colors\nBlue yellow Color Palette: https://www.color-hex.com/color-palette/80255\nAki no Fujisan Color Palette: https://www.color-hex.com/color-palette/1026103",
+    "text": "5.1 Colors\nTo add GitHub Actions:\nBlue yellow Color Palette: https://www.color-hex.com/color-palette/80255\nAki no Fujisan Color Palette: https://www.color-hex.com/color-palette/1026103",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Making this book</span>"
     ]
