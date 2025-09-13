@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.34">
+<meta name="generator" content="quarto-1.8.24">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -33,14 +33,15 @@ ul.task-list li input[type="checkbox"] {
 <link href="./references.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-c5429b593cf9ac2e853ad479a6ce1d10.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-14146b8454b0bf4727f40148f798ad06.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-e24e88f5db6ba3e2869aa0620c892c6a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-9f83ce1f48295fdacb7a7b678083726a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -94,7 +95,9 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">A Solid Start to ggplot2</a> 
         <div class="sidebar-tools-main">
@@ -190,6 +193,10 @@ ul.task-list li input[type="checkbox"] {
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 29%">
+<col style="width: 70%">
+</colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;">GEOM</th>
@@ -243,11 +250,11 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="even">
 <td style="text-align: left;">geom_crossbar</td>
-<td style="text-align: left;">x, y, ymin, and ymax or x, y, xmin, and xmax.</td>
+<td style="text-align: left;">x, y, and ymin and ymax or xmin and xmax.</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">geom_curve</td>
-<td style="text-align: left;">x, y, and xend or x, y, and yend.</td>
+<td style="text-align: left;">x, y, and xend or yend.</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">geom_density</td>
@@ -279,7 +286,7 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="odd">
 <td style="text-align: left;">geom_errorbarh</td>
-<td style="text-align: left;">xmin, xmax, and y.</td>
+<td style="text-align: left;">x, ymin, and ymax or y, xmin, and xmax.</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">geom_freqpoly</td>
@@ -331,7 +338,7 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="even">
 <td style="text-align: left;">geom_pointrange</td>
-<td style="text-align: left;">x, y, ymin, and ymax or x, y, xmin, and xmax.</td>
+<td style="text-align: left;">x, y, and ymin and ymax or xmin and xmax.</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">geom_polygon</td>
@@ -355,7 +362,7 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="even">
 <td style="text-align: left;">geom_rect</td>
-<td style="text-align: left;">xmin, xmax, ymin, and ymax.</td>
+<td style="text-align: left;">x, width, xmin, or xmax and y, height, ymin, or ymax.</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">geom_ribbon</td>
@@ -367,7 +374,7 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="odd">
 <td style="text-align: left;">geom_segment</td>
-<td style="text-align: left;">x, y, and xend or x, y, and yend.</td>
+<td style="text-align: left;">x, y, and xend or yend.</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">geom_sf</td>
@@ -468,13 +475,14 @@ ul.task-list li input[type="checkbox"] {
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
