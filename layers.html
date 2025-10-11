@@ -271,7 +271,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="geoms" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="geoms"><span class="header-section-number">3.2</span> Geoms</h2>
 <p>Geoms are the heart and soul of graphics made with ggplot2. A “geom” is short-hand for geometric object, the shapes that represent. We will begin with six commonly used geoms, shown below.</p>
-<div class="cell quarto-layout-panel" data-layout-ncol="3" data-layout-align="center">
+<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="3">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -324,7 +324,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="aesthetic-mappings" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="aesthetic-mappings"><span class="header-section-number">3.3</span> Aesthetic mappings</h2>
 <p>An aesthetic mapping relates visual properties with variables (also called features or columns) in the data. There are a limited number of aesthetic mappings; some of the most common are <code>x</code>, <code>y</code>, <code>color</code>, and <code>fill</code>. For example, to create the following scatterplot, we map <code>x</code> to <code>Income</code> and <code>y</code> to <code>Illiteracy</code>:</p>
-<div class="cell quarto-layout-panel" data-layout-ncol="2" data-layout-align="center">
+<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -357,7 +357,7 @@ Tip
 </div>
 </div>
 <p>Let’s consider an example. <code>geom_histogram()</code> has <strong>one</strong> required mapping <strong><code>x</code> or <code>y</code></strong>. A standard histogram with vertical bars is produced by mapping <code>x</code> though there may be circumstances in which a <code>y</code> mapping is desired, for example to create a population pyramid.</p>
-<div class="cell quarto-layout-panel" data-layout-ncol="2" data-layout-align="center">
+<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -454,7 +454,7 @@ Tip
 <section id="an-example" class="level3" data-number="3.4.1">
 <h3 data-number="3.4.1" class="anchored" data-anchor-id="an-example"><span class="header-section-number">3.4.1</span> An example</h3>
 <p>Suppose we wish to draw histograms of the <em>continuous</em> variables in the <code>CO2</code> dataset. Since histogram represents the distribution of a numerical variable and has no meaning for categorical variables, the mapping must be to a numerical variable. Our choices therefore are <code>conc</code> and <code>uptake</code>:</p>
-<div class="cell quarto-layout-panel" data-layout="[[-5,45,-5,45,-5]]" data-layout-align="center">
+<div class="cell quarto-layout-panel" data-layout-align="center" data-layout="[[-5,45,-5,45,-5]]">
 <div class="quarto-layout-row">
 <div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 4.8%;justify-content: center;">
 <p>&nbsp;</p>
